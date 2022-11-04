@@ -1,8 +1,10 @@
-﻿using MyShop.Core.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Runtime.Caching;
+using MyShop.Core.Models;
 
 namespace MyShop.DataAccess.InMemory
 {
@@ -11,35 +13,28 @@ namespace MyShop.DataAccess.InMemory
         ObjectCache cache = MemoryCache.Default;
         List<Product> products;
 
-        public List<Product> Products { get => products; set => products = value; }
-
         public ProductRepository()
         {
-            Products = cache["products"] as List<Product>;
-            if (Products == null)
+            products = cache["products"] as List<Product>;
+            if (products == null)
             {
-                Products = new List<Product>();
+                products = new List<Product>();
             }
-        }
-
-        public List<Product> CollectionsToList()
-        {
-            throw new NotImplementedException();
         }
 
         public void Commit()
         {
-            cache["products"] = Products;
+            cache["products"] = products;
         }
 
         public void Insert(Product p)
         {
-            Products.Add(p);
+            products.Add(p);
         }
 
         public void Update(Product product)
         {
-            Product productToUpdate = Products.Find(p => p.Id == product.Id);
+            Product productToUpdate = products.Find(p => p.Id == product.Id);
             if (productToUpdate != null)
             {
                 productToUpdate = product;
@@ -52,7 +47,7 @@ namespace MyShop.DataAccess.InMemory
 
         public Product Find(string Id)
         {
-            Product productFind = Products.Find(p => p.Id == Id);
+            Product productFind = products.Find(p => p.Id == Id);
             if (productFind != null)
             {
                 return productFind;
@@ -65,15 +60,15 @@ namespace MyShop.DataAccess.InMemory
 
         public IQueryable<Product> Collection()
         {
-            return Products.AsQueryable();
+            return products.AsQueryable();
         }
 
         public void Delete(string Id)
         {
-            Product productToDelete = Products.Find(p => p.Id == Id);
+            Product productToDelete = products.Find(p => p.Id == Id);
             if (productToDelete != null)
             {
-                Products.Remove(productToDelete);
+                products.Remove(productToDelete);
             }
             else
             {
