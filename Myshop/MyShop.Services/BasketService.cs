@@ -84,11 +84,12 @@ namespace MyShop.Services
                 };
                 basket.BasketItems.Add(item);
             }
+          
+        
             else
             {
                 item.Quantity = item.Quantity + 1;
             }
-
             basketContext.Commit();
         }
 
@@ -145,6 +146,12 @@ namespace MyShop.Services
                 model.BasketCount = basketCount ?? 0;
                 model.BasketTotal = basketTotal ?? decimal.Zero;
             }
+            else
+            {
+                Console.WriteLine("empty");
+          
+            }
+         
 
             return model;
         }

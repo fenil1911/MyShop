@@ -29,14 +29,21 @@
             </dd>
             <dt></dt>
             <dd>
-                <a href="@Url.Action("AddToBasket", "Basket", new { Id = Model.Id })" class="btn btn-default">Add To Cart</a>
-            </dd>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
 
-            <dt></dt>
-            <dd>
-                @Html.ActionLink("Back to List", "Index")
-            </dd>
-        </dl>
+                        <a href="@Url.Action("AddToBasket", "Basket", new { Id = Model.Id })" class="btn btn-default">Add To Cart</a>
+                    }
+                </dd>
+
+                <dt></dt>
+                <dd>
+                    @Html.ActionLink("Back to List", "Index")
+                </dd>
+            </dl>
+        </div>
     </div>
-</div>
-<div class="col-md-12 clearfix" />
+    <div class="col-md-12 clearfix" />
+    </div>

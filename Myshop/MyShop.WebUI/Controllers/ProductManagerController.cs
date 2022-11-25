@@ -22,7 +22,7 @@ namespace MyShop.WebUI.Controllers
             productCategories = productCategoryContext;
 
         }
-        // GET: ProductManager
+       
         public ActionResult Index()
         {
             List<Product> products = context.Collection().ToList();
