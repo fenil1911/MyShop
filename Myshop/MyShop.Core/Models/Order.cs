@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MyShop.Core.Models
 {
@@ -21,6 +17,11 @@ namespace MyShop.Core.Models
         public string State { get; set; }
         public string ZipCode { get; set; }
         public string OrderStatus { get; set; }
+
+        //thank you order id for client side
+        public string OrderViewId { get; set; }
+        public string OrderView { get; set; }
+
 
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }

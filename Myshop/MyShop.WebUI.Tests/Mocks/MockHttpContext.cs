@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Security.Principal;
+﻿using System.Web;
 namespace MyShop.WebUI.Tests.Mocks
 {
     public class MockHttpContext : HttpContextBase
@@ -12,14 +6,15 @@ namespace MyShop.WebUI.Tests.Mocks
         private MockRequest request;
         private MockResponse response;
         private HttpCookieCollection cookies;
-        
+
         public MockHttpContext()
         {
             cookies = new HttpCookieCollection();
             this.request = new MockRequest(cookies);
             this.response = new MockResponse(cookies);
         }
-        public override HttpRequestBase Request {
+        public override HttpRequestBase Request
+        {
             get
             {
                 return request;
@@ -30,7 +25,7 @@ namespace MyShop.WebUI.Tests.Mocks
             get { return response; }
         }
 
-   
+
     }
     public class MockResponse : HttpResponseBase
     {
@@ -40,8 +35,8 @@ namespace MyShop.WebUI.Tests.Mocks
             this.cookies = cookies;
 
         }
-    
-    public override HttpCookieCollection Cookies
+
+        public override HttpCookieCollection Cookies
         {
             get
             {

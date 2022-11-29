@@ -1,14 +1,11 @@
-﻿  using MyShop.Core.Contracts;
+﻿using MyShop.Core.Contracts;
 using MyShop.Core.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MyShop.WebUI.Controllers
 {
-    
+
     public class BasketController : Controller
     {
         IRepository<Customer> customers;
@@ -28,6 +25,19 @@ namespace MyShop.WebUI.Controllers
             var model = basketService.GetBasketItems(this.HttpContext);
             return View(model);
         }
+        public ActionResult Increment(string Id)
+        {
+            basketService.InsertToBasket(this.HttpContext, Id);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Remove(string Id)
+        {
+            basketService.RemoveToBasket(this.HttpContext, Id);
+            return RedirectToAction("Index");
+        }
+
+
+
 
         public ActionResult AddToBasket(string Id)
         {
@@ -35,7 +45,7 @@ namespace MyShop.WebUI.Controllers
 
             return RedirectToAction("Index");
         }
-        
+
         public ActionResult RemoveFromBasket(string Id)
         {
             basketService.RemoveFromBasket(this.HttpContext, Id);

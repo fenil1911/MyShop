@@ -5,7 +5,6 @@ using MyShop.Core.ViewModels;
 using MyShop.Services;
 using MyShop.WebUI.Controllers;
 using MyShop.WebUI.Tests.Mocks;
-using System;
 using System.Linq;
 using System.Security.Principal;
 using System.Web.Mvc;

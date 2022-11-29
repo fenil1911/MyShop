@@ -1,15 +1,12 @@
-﻿using System;
+﻿using MyShop.Core.Contracts;
+using MyShop.Core.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using MyShop.Core.Contracts;
-using MyShop.Core.Models;
-using MyShop.DataAccess.InMemory;
 
 namespace MyShop.WebUI.Controllers
 {
-   
+
     public class ProductCategoryManagerController : Controller
     {
         IRepository<ProductCategory> context;
@@ -19,7 +16,7 @@ namespace MyShop.WebUI.Controllers
             this.context = productCategoryContext;
 
         }
-      
+
         public ActionResult Index()
         {
             List<ProductCategory> productCategories = context.Collection().ToList();

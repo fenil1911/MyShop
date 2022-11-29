@@ -2,13 +2,9 @@
 using MyShop.Core.Contracts;
 using MyShop.Core.Models;
 using MyShop.Core.ViewModels;
-using MyShop.WebUI;
 using MyShop.WebUI.Controllers;
 using MyShop.WebUI.Tests.Mocks;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web.Mvc;
 
 namespace MyShop.WebUI.Tests.Controllers
@@ -32,6 +28,6 @@ namespace MyShop.WebUI.Tests.Controllers
             Assert.AreEqual(1, viewModel.Products.Count());
         }
 
-       
+
     }
 }

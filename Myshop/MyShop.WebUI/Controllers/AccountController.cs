@@ -1,16 +1,13 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyShop.Core.Contracts;
 using MyShop.Core.Models;
 using MyShop.WebUI.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace MyShop.WebUI.Controllers
 {
@@ -21,7 +18,7 @@ namespace MyShop.WebUI.Controllers
         private ApplicationUserManager _userManager;
         private IRepository<Customer> customerRepository;
 
-        public AccountController(IRepository<Customer> customerRepo )
+        public AccountController(IRepository<Customer> customerRepo)
         {
             this.customerRepository = customerRepo;
         }
@@ -32,9 +29,9 @@ namespace MyShop.WebUI.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -50,7 +47,7 @@ namespace MyShop.WebUI.Controllers
             }
         }
 
-        
+
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -58,7 +55,7 @@ namespace MyShop.WebUI.Controllers
             return View();
         }
 
-       
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -87,7 +84,7 @@ namespace MyShop.WebUI.Controllers
             }
         }
 
-        
+
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
@@ -109,8 +106,8 @@ namespace MyShop.WebUI.Controllers
                 return View(model);
             }
 
-          
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -161,8 +158,8 @@ namespace MyShop.WebUI.Controllers
                     customerRepository.Insert(customer);
                     customerRepository.Commit();
 
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

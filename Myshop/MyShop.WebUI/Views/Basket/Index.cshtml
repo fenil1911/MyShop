@@ -37,9 +37,12 @@
             </td>
             <td>
                 <div>
-                    <button id="sub">-</button>
-                    <input type="number" value="0" @Html.DisplayFor(modelItem => item.Quantity)>
-                    <button id="add">+</button>
+                    @if (item.Quantity > 1)
+                    {
+                    <a href="@Url.Action("Remove", "Basket", new { Id = item.ProductId })" onclick="new { Id = item.Id }" class="btn btn-default" >-</a>
+                    }
+                    <input type="button" class="btn btn-primary" value=" @Html.DisplayFor(modelItem => item.Quantity)" >
+                    <a href="@Url.Action("Increment", "Basket", new { Id = item.ProductId } )"  onclick="new { Id = item.Id }" class="btn btn-default"  >+</a>
                 </div>
 
 
@@ -60,19 +63,23 @@
         </tr>
     }
 
-<tr>
-    <td colspan="4" style="text-align:right"><strong>Basket Total</strong></td>
-    <td>@String.Format("{0:c}", (from p in Model select p.Price * p.Quantity).Sum())</td>
-    @{
-        var sum = (from p in Model select p.Price * p.Quantity).Sum();
+    <tr>
+        <td colspan="4" style="text-align:right"><strong>Basket Total</strong></td>
+        <td>@String.Format("{0:c}", (from p in Model select p.Price * p.Quantity).Sum())</td>
+        @{
+            var sum = (from p in Model select p.Price * p.Quantity).Sum();
 
-    } 
+        }
 
-    @if (sum > 0)
-    {
-    <td>
-        <a href="@Url.Action("Checkout", "Basket")"
-           onclick="return ">Checkout</a>
-    </td>}
-</tr>
+        @if (sum > 0)
+        {
+            <td>
+                <a href="@Url.Action("Checkout", "Basket")"
+                   onclick="return ">Checkout</a>
+            </td>
+        }
+    </tr>
 </table>
+
+@*  <button id="sub" onclick="AddToBasket()">-</button>*@
+@*<button id="add" onclick="AddToBasket">+</button>*@

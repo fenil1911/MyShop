@@ -4,8 +4,6 @@ using MyShop.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace MyShop.Services
@@ -84,14 +82,35 @@ namespace MyShop.Services
                 };
                 basket.BasketItems.Add(item);
             }
-          
-        
             else
             {
                 item.Quantity = item.Quantity + 1;
             }
             basketContext.Commit();
+
         }
+
+        public void InsertToBasket(HttpContextBase httpContext, string productId)
+        {
+            Basket basket = GetBasket(httpContext, true);
+            BasketItem item = basket.BasketItems.FirstOrDefault(i => i.ProductId == productId);
+            item.Quantity = item.Quantity + 1;
+            basketContext.Commit();
+        }
+
+        public void RemoveToBasket(HttpContextBase httpContext, string productId)
+
+        {
+
+            Basket basket = GetBasket(httpContext, true);
+            BasketItem item = basket.BasketItems.FirstOrDefault(i => i.ProductId == productId);
+            item.Quantity = item.Quantity - 1;
+            basketContext.Commit();
+        }
+
+
+
+
 
         public void RemoveFromBasket(HttpContextBase httpContext, string itemId)
         {
@@ -119,7 +138,8 @@ namespace MyShop.Services
                                   Quantity = b.Quantity,
                                   ProductName = p.Name,
                                   Image = p.Image,
-                                  Price = p.Price
+                                  Price = p.Price,
+                                  ProductId = p.Id
                               }).ToList();
 
                 return result;
@@ -149,9 +169,9 @@ namespace MyShop.Services
             else
             {
                 Console.WriteLine("empty");
-          
+
             }
-         
+
 
             return model;
         }

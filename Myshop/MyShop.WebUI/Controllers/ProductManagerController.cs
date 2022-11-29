@@ -1,13 +1,11 @@
-﻿using System;
+﻿using MyShop.Core.Contracts;
+using MyShop.Core.Models;
+using MyShop.Core.ViewModels;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyShop.Core.Contracts;
-using MyShop.Core.Models;
-using MyShop.Core.ViewModels;
-using MyShop.DataAccess.InMemory;
 
 namespace MyShop.WebUI.Controllers
 {
@@ -22,7 +20,7 @@ namespace MyShop.WebUI.Controllers
             productCategories = productCategoryContext;
 
         }
-       
+
         public ActionResult Index()
         {
             List<Product> products = context.Collection().ToList();
