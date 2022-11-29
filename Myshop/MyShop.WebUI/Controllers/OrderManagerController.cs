@@ -20,7 +20,8 @@ namespace MyShop.WebUI.Controllers
         // GET: OrderManager
         public ActionResult Index()
         {
-            List<Order> orders = orderService.GetOrderList();
+            var orders = orderService.GetOrderList();
+
             return View(orders);
         }
 

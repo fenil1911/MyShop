@@ -105,6 +105,10 @@ namespace MyShop.Services
             Basket basket = GetBasket(httpContext, true);
             BasketItem item = basket.BasketItems.FirstOrDefault(i => i.ProductId == productId);
             item.Quantity = item.Quantity - 1;
+            if (item.Quantity == 0)
+            {
+                item.Quantity = item.Quantity + 1;
+            }
             basketContext.Commit();
         }
 

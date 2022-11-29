@@ -220,29 +220,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202211040707568_AddBasket.cs" />
-    <Compile Include="Migrations\202211040707568_AddBasket.Designer.cs">
-      <DependentUpon>202211040707568_AddBasket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202211281311293_Column_Remove.cs" />
-    <Compile Include="Migrations\202211281311293_Column_Remove.Designer.cs">
-      <DependentUpon>202211281311293_Column_Remove.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202211290500425_OrderViewId.cs" />
-    <Compile Include="Migrations\202211290500425_OrderViewId.Designer.cs">
-      <DependentUpon>202211290500425_OrderViewId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202211290556439_OrderViewId1.cs" />
-    <Compile Include="Migrations\202211290556439_OrderViewId1.Designer.cs">
-      <DependentUpon>202211290556439_OrderViewId1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202211290604545_add_OrderView_In_Order.cs" />
-    <Compile Include="Migrations\202211290604545_add_OrderView_In_Order.Designer.cs">
-      <DependentUpon>202211290604545_add_OrderView_In_Order.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202211290616261_create_table_Abc.cs" />
-    <Compile Include="Migrations\202211290616261_create_table_Abc.Designer.cs">
-      <DependentUpon>202211290616261_create_table_Abc.cs</DependentUpon>
+    <Compile Include="Migrations\202211290741321_Addconfig.cs" />
+    <Compile Include="Migrations\202211290741321_Addconfig.Designer.cs">
+      <DependentUpon>202211290741321_Addconfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -361,23 +341,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202211040707568_AddBasket.resx">
-      <DependentUpon>202211040707568_AddBasket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202211281311293_Column_Remove.resx">
-      <DependentUpon>202211281311293_Column_Remove.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202211290500425_OrderViewId.resx">
-      <DependentUpon>202211290500425_OrderViewId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202211290556439_OrderViewId1.resx">
-      <DependentUpon>202211290556439_OrderViewId1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202211290604545_add_OrderView_In_Order.resx">
-      <DependentUpon>202211290604545_add_OrderView_In_Order.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202211290616261_create_table_Abc.resx">
-      <DependentUpon>202211290616261_create_table_Abc.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202211290741321_Addconfig.resx">
+      <DependentUpon>202211290741321_Addconfig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

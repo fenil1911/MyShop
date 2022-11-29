@@ -3,6 +3,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.OrderViewId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CreatedAt)
         </th>
         <th>
@@ -23,6 +26,9 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderViewId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>

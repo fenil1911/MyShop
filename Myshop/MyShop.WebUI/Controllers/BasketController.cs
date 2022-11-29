@@ -94,17 +94,17 @@ namespace MyShop.WebUI.Controllers
             order.Email = User.Identity.Name;
 
             //Payment process goes here
-
+            
             order.OrderStatus = "Payment Processed";
             orderService.CreateOrder(order, basketItems);
             basketService.ClearBasket(this.HttpContext);
 
-            return RedirectToAction("ThankYou", new { OrderId = order.Id });
+            return RedirectToAction("ThankYou", new { OrderViewId = order.OrderViewId });
         }
 
-        public ActionResult ThankYou(string OrderId)
+        public ActionResult ThankYou(string OrderViewId)
         {
-            ViewBag.OrderId = OrderId;
+            ViewBag.OrderViewId = OrderViewId;
             return View();
         }
     }

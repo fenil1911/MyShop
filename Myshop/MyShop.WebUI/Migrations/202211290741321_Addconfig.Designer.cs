@@ -7,13 +7,13 @@ namespace MyShop.WebUI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class add_OrderView_In_Order : IMigrationMetadata
+    public sealed partial class Addconfig : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(add_OrderView_In_Order));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Addconfig));
         
         string IMigrationMetadata.Id
         {
-            get { return "202211290604545_add_OrderView_In_Order"; }
+            get { return "202211290741321_Addconfig"; }
         }
         
         string IMigrationMetadata.Source

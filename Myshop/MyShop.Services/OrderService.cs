@@ -26,14 +26,26 @@ namespace MyShop.Services
                     Quantity = item.Quantity
                 });
             }
-
+            if (orderContext.Collection().Count() > 0)
+            {
+                var cnt = orderContext.Collection().Count();
+                int lastId = cnt;
+                lastId++;
+                baseOrder.OrderViewId = "ORD" + lastId.ToString().PadLeft(4, '0'); 
+            }
+            else
+            {
+                int lastId = 0;
+                lastId++;
+                baseOrder.OrderViewId = "ORD" + lastId.ToString().PadLeft(4, '0');
+            }
             orderContext.Insert(baseOrder);
             orderContext.Commit();
         }
 
         public List<Order> GetOrderList()
         {
-            return orderContext.Collection().ToList();
+            return orderContext.Collection().OrderBy(x => x.OrderViewId).ToList();
         }
 
         public Order GetOrder(string Id)
