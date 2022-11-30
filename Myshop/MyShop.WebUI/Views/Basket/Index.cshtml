@@ -37,7 +37,7 @@
             </td>
             <td>
                 <div>
-                    @if (item.Quantity > 1)
+                    @if (item.Quantity > 1) 
                     {
                     <a href="@Url.Action("Remove", "Basket", new { Id = item.ProductId })" onclick="new { Id = item.Id }" class="btn btn-default" >-</a>
                     }

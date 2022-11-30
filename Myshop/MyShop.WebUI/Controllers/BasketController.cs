@@ -87,7 +87,7 @@ namespace MyShop.WebUI.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult Checkout(Order order)
+        public ActionResult Checkout(Order order) 
         {
             var basketItems = basketService.GetBasketItems(this.HttpContext);
             order.OrderStatus = "Order Created";

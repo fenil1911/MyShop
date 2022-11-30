@@ -101,7 +101,6 @@ namespace MyShop.Services
         public void RemoveToBasket(HttpContextBase httpContext, string productId)
 
         {
-
             Basket basket = GetBasket(httpContext, true);
             BasketItem item = basket.BasketItems.FirstOrDefault(i => i.ProductId == productId);
             item.Quantity = item.Quantity - 1;
@@ -111,11 +110,6 @@ namespace MyShop.Services
             }
             basketContext.Commit();
         }
-
-
-
-
-
         public void RemoveFromBasket(HttpContextBase httpContext, string itemId)
         {
             Basket basket = GetBasket(httpContext, true);
@@ -127,7 +121,6 @@ namespace MyShop.Services
                 basketContext.Commit();
             }
         }
-
         public List<BasketItemViewModel> GetBasketItems(HttpContextBase httpContext)
         {
             Basket basket = GetBasket(httpContext, false);
@@ -153,7 +146,6 @@ namespace MyShop.Services
                 return new List<BasketItemViewModel>();
             }
         }
-
         public BasketSummaryViewModel GetBasketSummary(HttpContextBase httpContext)
         {
             Basket basket = GetBasket(httpContext, false);
@@ -175,11 +167,8 @@ namespace MyShop.Services
                 Console.WriteLine("empty");
 
             }
-
-
             return model;
         }
-
         public void ClearBasket(HttpContextBase httpContext)
         {
             Basket basket = GetBasket(httpContext, false);

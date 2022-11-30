@@ -17,7 +17,6 @@ namespace MyShop.WebUI.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private IRepository<Customer> customerRepository;
-
         public AccountController(IRepository<Customer> customerRepo)
         {
             this.customerRepository = customerRepo;
@@ -335,7 +334,7 @@ namespace MyShop.WebUI.Controllers
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
             switch (result)
             {
-                case SignInStatus.Success:
+                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -349,7 +348,7 @@ namespace MyShop.WebUI.Controllers
                     return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
             }
         }
-
+         
         //
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
